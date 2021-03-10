@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+
+    Adding Category
+
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <h1> Add Category... </h1>
+
+        <br/>
+
+        <div class = "form-group">
+            <form method = "POST">
+
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <button> Add Category </button>
+
+            </form>
+        <div/>
+    {% else %}
+
+        You are not supposed to be here, and you know it.
+
+    {% endif %}
+{% endblock %}

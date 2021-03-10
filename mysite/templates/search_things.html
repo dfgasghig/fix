@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+
+     Editing Blog Post
+
+{% endblock %}
+{% block content %}
+    {% if post %}
+
+        <h1> Results </h1>
+
+        {% for i in post %}
+
+            <a href = "{% url 'article-detail' i.pk %}"> {{ i.title }} </a>
+
+        {% endfor %}
+    {% else %}
+
+        <h2> Nothing is found </h2>
+
+    {% endif %}
+{% endblock %}

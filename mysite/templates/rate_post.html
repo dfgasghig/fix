@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+
+    Rating Post
+
+{% endblock %}
+{% block content %}
+
+    {{ post.title }}
+
+    <div class = "form-group">
+        <form method = "POST">
+
+            {% csrf_token %}
+
+            {{ form.rate }}
+
+            <button type = 'submit' name = 'action'> Rate </button>
+
+        </form>
+    <div/>
+
+{% endblock %}
