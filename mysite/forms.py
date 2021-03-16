@@ -5,13 +5,14 @@ try:
     class PostForm(forms.ModelForm):
         class Meta:
             model = Post
-            fields = ('title', 'author', 'category', 'tags', 'body')
+            fields = ('title', 'author', 'category', 'tags', 'body', 'snippet')
             widgets = {
                 'title': forms.TextInput(attrs = {'class': 'form-control'}),
                 'author': forms.TextInput(attrs = {'class': 'form-control', 'value': '', 'id': 'id_token', 'type': 'hidden'}),
                 'category': forms.Select(choices = Category.objects.all().values_list('name', 'name'), attrs = {'class': 'form-control'}),
                 'tags': forms.TextInput(attrs = {'class': 'form-control'}),
                 'body': forms.Textarea(attrs = {'class': 'form-control'}),
+                'snippet': forms.Textarea(attrs={'class': 'form-control'}),
             }
 except Exception:
     class PostForm(forms.ModelForm):

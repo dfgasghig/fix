@@ -1,15 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     title = models.CharField(max_length = 255)
     tags = models.CharField(max_length = 255)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
-    body = models.TextField()
+    body = RichTextField(blank = True, null = True)
     post_date = models.DateField(auto_now_add = True)
     post_time = models.DateTimeField(auto_now_add = True)
     category = models.CharField(max_length = 255, default = 'uncategorized')
+    snippet = models.CharField(max_length = 255, default = 'Click Link To Read Post...')
 
     def __str__(self):
         return self.title + '|' + str(self.author)
